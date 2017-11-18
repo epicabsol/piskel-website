@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block bodyclass %}{% endblock %}
+{% block title %}Piskel Tutorials &amp; Reference{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="/static/css/piskel-app-docs.css"/>
+{% endblock %}
+
+{% block main %}
+<div class="docs-section bg0 checkered-bg">
+  <div class="docs-section-inner">
+    <h4 class="docs-section-title">Piskel Tutorials &amp; References</h4>
+
+  </div> 
+</div>
+
+<div class="docs-section bg1 checkeded-bg">
+  <div class="docs-section-inner">
+      <div class="docs-markdown-container">
+        {{ mdcontent }}
+      </div>
+    </div>
+</div>
+
+<div class="docs-section bg3 grow checkered-bg">
+  <div class="docs-section-inner">
+
+  </div>
+</div>
+
+{% endblock %}

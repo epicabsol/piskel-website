@@ -22,7 +22,7 @@ from config import secrets
 
 from webapp2 import WSGIApplication, Route
 from webapp2_extras import routes
-from handlers import user, user_stats, redirect, error
+from handlers import user, user_stats, redirect, error, docs
 
 # webapp2 config
 config = {
@@ -87,7 +87,12 @@ routes = [
   # ############# #
   Route('/img/<image_name>', handler='handlers.image.GetImageHandler', name='image-get'),
   Route('/img/<framesheet_id>/preview', handler='handlers.image.GetImageHandler:get_framesheet_preview', name='image-get-preview'),
-  Route('/img/<framesheet_id>/framesheet', handler='handlers.image.GetImageHandler:get_framesheet', name='image-get-framesheet')
+  Route('/img/<framesheet_id>/framesheet', handler='handlers.image.GetImageHandler:get_framesheet', name='image-get-framesheet'),
+  # ############# #
+  # DOCS   ROUTES #
+  # ############# #
+  Route('/docs', handler=docs.DocsIndexHandler, name='docs'),
+  Route('/docs/<section>/<item>', handler=docs.DocsItemHandler, name='docs-index')
 ]
 
 app = WSGIApplication(routes, config=config, debug=True)
